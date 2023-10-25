@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function items() {
+export default function ItemsWraper({ children }: { children: React.ReactNode }): React.JSX.Element {
     return (
-        <React.Fragment>
-
-        </React.Fragment>
+        <div className='products-page-items'>
+            {children}
+        </div>
     );
 }

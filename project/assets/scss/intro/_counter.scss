@@ -1,0 +1,17 @@
+@import '../colors';
+
+.counter {
+    @include flexCol;
+    text-align: center;
+    font-family: $bs-font-sans-serif;
+
+    .count {
+        font-size: 40px;
+        color: $bs-orange;
+    }
+
+    .title {
+        font-size: 20px;
+        color: $bs-intro;
+    }
+}

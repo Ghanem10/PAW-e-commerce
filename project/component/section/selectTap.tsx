@@ -1,5 +1,6 @@
 import React from 'react';
 import { SelectionProducts } from '../../util/typesObj';
+import '../../assets/scss/intro/_selection.scss';
 
 declare type IProductsSelection = {
     product: SelectionProducts;
@@ -9,7 +10,6 @@ export default function SelectTap(selection: IProductsSelection): React.JSX.Elem
 
     return (
         <React.Fragment>
-            <label htmlFor={selection.product.label}>{selection.product.label}</label>
             <select name={selection.product.name}>
                 <option defaultValue={selection.product.name}>{selection.product.name}</option>
                 <option value={selection.product.value_one}>{selection.product.value_one}</option>

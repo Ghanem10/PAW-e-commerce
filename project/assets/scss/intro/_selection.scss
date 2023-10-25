@@ -1,0 +1,10 @@
+@import '../colors';
+
+select {
+    width: 15%;
+    height: 40px;
+    border-radius: 7px;
+    color: $bs-light;
+    background-color: $bs-dark;
+    outline: none;
+}

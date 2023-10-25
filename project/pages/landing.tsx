@@ -1,45 +1,126 @@
 import React from 'react';
+import IphoneImage from '../assets/img/teardown.svg';
+import teardown from '../assets/img/section-dark.png';
+import Navbar from '../component/nav/navbar';
 import { Link } from 'react-router-dom';
-import IphoneImage from '../assets/img/iphone-intro.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+
+/** StyleSheet */
 import '../assets/scss/intro/intro-section.scss';
 import '../assets/img/iphone-intro.png';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
+import { faChrome } from '@fortawesome/free-brands-svg-icons/faChrome';
+import { faFirefox } from '@fortawesome/free-brands-svg-icons/faFirefox';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
+import Counter from '../util/hooks/Counter';
 
-export default function Introduction() {
+export default function Introduction(): React.JSX.Element {
     document.title = "Main | E-commerce";
 
     return (
-        <section className='intro-page'>
-            <header>
-                <nav>
-                    <h4 tabIndex={1}><FontAwesomeIcon icon={faCartShopping} /> E-commerce</h4>
-                    <ul>
-                        <li tabIndex={2}><Link to={"/Products"}>Product</Link></li>
-                        <li tabIndex={3}>Subscription</li>
-                        <li className='intro-about-section' tabIndex={4}>About</li>
-                        <p className='intro-p-about-section'>
-                            Our e-commerce platform offers a vast range of products, making shopping for anything
-                            you need a breeze. Explore a diverse selection of items from electronics to fashion, all in one place
+        <React.Fragment>
+            <section className='intro-page'>
+                <Navbar />
+                <div className='body-intro-page'>
+                    <div className='body-intro-page-text'>
+                        <h3 tabIndex={6}>E-commerce Web Template</h3>
+                        <p tabIndex={7}>
+                            All of CSS html templates are Ready to use for online shops and 
+                            marketplace web sites with well organized file structure and well designed stylesheet. 
+                            Check our desktop html themes and ecommerce mobile app templates.
                         </p>
-                    </ul>
-                    <button tabIndex={5}>Login / Register</button>
-                </nav>
-            </header>
-            <div className='body-intro-page'>
-                <div className='body-intro-page-text'>
-                    <h3 tabIndex={6}>E-commerce Web Template</h3>
-                    <p tabIndex={7}>
-                        All of CSS html templates are Ready to use for online shops and 
-                        marketplace web sites with well organized file structure and well designed stylesheet. 
-                        Check our desktop html themes and ecommerce mobile app templates.
+                        <button tabIndex={8}>
+                            <Link to={'/Subscription'}>
+                                Get Started
+                            </Link>
+                        </button>
+                    </div>
+                    <div className='body-intro-page-image'>
+                        <img src={IphoneImage} alt="" />
+                    </div>
+                </div>
+            </section>
+            <section className='intro-page-body'>
+                <div className='intro-page-body-img'>
+                    <img src={teardown} alt="" />
+                </div>
+                <div className='intro-pgae-body-text'>
+                    <h1>Marketplace & built-in Extensions</h1>
+                    <p>
+                        Need additional features? Connect extensions or write your own! 
+                        Now you do not need to use many sources from different systems 
+                        - expand and supplement everything in one! Install extensions 
+                        and sell your own. Came up with a great extension for your company? 
+                        Great! Publish it on the marketplace and share your insights
+                        with the whole community.
                     </p>
-                    <button tabIndex={8}>Get Started</button>
+
+                    <button>
+                        <Link to={'#'}>
+                            Visit E-commerce Marketplace <FontAwesomeIcon icon={faArrowRight} />
+                        </Link>
+                    </button>
                 </div>
-                <div className='body-intro-page-image'>
-                    <img src={IphoneImage} alt="" />
+            </section>
+            <section className='section-people-ecommerce'>
+                <div className='section-people-intro'>
+                    <h1>People 🥰 E-commerce</h1>
+                    <p>
+                        E-commerce is an ethical and powerful service. 
+                        Hundreds of people have already made the switch 
+                        from Google and other alternatives.
+                    </p>
                 </div>
-            </div>
-        </section>
+                <div className='counter-section'>
+                    <Counter limit={570} title='Registered users' />
+                    <Counter limit={2038} title='Added websites'/>
+                    <Counter limit={3502} title='Events tracked'/>
+                </div>
+            </section>
+            <footer>
+                <div className='footer-details'>
+                    <Link to={'/'}>
+                        <FontAwesomeIcon icon={faCartShopping} /> E-commerce
+                    </Link>
+                    <p>
+                        The best website need the best services.
+                        E-commerce is a powerful E-commerce platform.
+                    </p>
+                    <div className='footer-social-links'>
+                        <Link to={'#'}><FontAwesomeIcon icon={faGithub} /></Link>
+                        <Link to={'#'}><FontAwesomeIcon icon={faDiscord} /></Link>
+                        <Link to={'#'}><FontAwesomeIcon icon={faTwitter} /></Link>
+                        <Link to={'#'}><FontAwesomeIcon icon={faLinkedin} /></Link>
+                        <Link to={'#'}><FontAwesomeIcon icon={faChrome} /></Link>
+                        <Link to={'#'}><FontAwesomeIcon icon={faFirefox} /></Link>
+                    </div>
+                    <span>@2023-10-25. All right reserved.</span>
+                </div>
+                <div className='footer-links'>
+                    <ul>
+                        <h1>FEATURES</h1>
+                        <li><Link to={'#'}>Career</Link></li>
+                        <li><Link to={'#'}>vs Google Analytics</Link></li>
+                        <li><Link to={'#'}>vs Simple Analytics</Link></li>
+                        <li><Link to={'#'}>UTM Generator</Link></li>
+                        <li><Link to={'#'}>CAPTCHA</Link></li>
+                    </ul>
+                    <ul>
+                        <h1>COMPANY</h1>
+                        <li><Link to={'#'}>About us</Link></li>
+                        <li><Link to={'#'}>Changelog</Link></li>
+                        <li><Link to={'#'}>Open startup</Link></li>
+                        <li><Link to={'#'}>Media & Press</Link></li>
+                        <li><Link to={'#'}>Status</Link></li>
+                        <li><Link to={'#'}>Donate</Link></li>
+                        <li><Link to={'#'}>Blog</Link></li>
+                        <li><Link to={'#'}>SUPPORT & LEGAL</Link></li>
+                    </ul>
+                </div>
+            </footer>
+        </React.Fragment>
     );
 }

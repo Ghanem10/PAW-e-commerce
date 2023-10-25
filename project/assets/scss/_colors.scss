@@ -1,0 +1,78 @@
+$bs-blue: #0d6efd;
+$bs-indigo: #6610f2;
+$bs-purple: #6f42c1;
+$bs-pink: #d63384;
+$bs-red: #ff2748;
+$bs-orange: #ff8100;
+$bs-orange-hover:  #ce6e0e;
+$bs-yellow: #ffc107;
+$bs-green: #00a524;
+$bs-green-hover: #07751f;
+$bs-teal: #20c997;
+$bs-cyan: #14c2e5;
+$bs-color-white: #ffffff;
+$bs-primary: $bs-blue;
+$bs-primary-light: #dbe9ff;
+$bs-secondary: #6c757d;
+$bs-secondary-light: #e9eaec;
+$bs-success: $bs-green;
+$bs-success-light: #d1efd8;
+$bs-warning: $bs-orange;
+$bs-warning-light: #ffe8d1;
+$bs-danger: $bs-red;
+$bs-danger-light: #ffd8de;
+$bs-info: $bs-cyan;
+$bs-light: #f8f9fa;
+$bs-gray: #ccd1d6;
+$bs-gray-light: #e9ecef;
+$bs-gray-dark: #868a8f;
+$bs-dark: #212529;
+$bs-intro: #000000;
+$bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
+
+@mixin button {
+    border-style: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: $bs-font-sans-serif;
+    transition: transform 0.2s ease;
+    
+    &:active {
+        transform: scale(0.96);
+    }
+}
+
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flexCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Handle scroll browser */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $bs-intro;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $bs-gray-dark; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $bs-gray-dark; 
+}

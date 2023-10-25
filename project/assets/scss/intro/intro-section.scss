@@ -1,112 +1,19 @@
-$bs-blue: #0d6efd;
-$bs-indigo: #6610f2;
-$bs-purple: #6f42c1;
-$bs-pink: #d63384;
-$bs-red: #ff2748;
-$bs-orange: #ff8100;
-$bs-orange-hover:  #ce6e0e;
-$bs-yellow: #ffc107;
-$bs-green: #00a524;
-$bs-green-hover: #07751f;
-$bs-teal: #20c997;
-$bs-cyan: #14c2e5;
-$bs-color-white: #ffffff;
-$bs-primary: $bs-blue;
-$bs-primary-light: #dbe9ff;
-$bs-secondary: #6c757d;
-$bs-secondary-light: #e9eaec;
-$bs-success: $bs-green;
-$bs-success-light: #d1efd8;
-$bs-warning: $bs-orange;
-$bs-warning-light: #ffe8d1;
-$bs-danger: $bs-red;
-$bs-danger-light: #ffd8de;
-$bs-info: $bs-cyan;
-$bs-light: #f8f9fa;
-$bs-gray: #ccd1d6;
-$bs-gray-light: #e9ecef;
-$bs-gray-dark: #9DA1A7;
-$bs-dark: #212529;
-$bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-
-*::before, *::after {
-    box-sizing: border-box;
-}
+@import '../colors';
 
 /* Intro Section */
 .intro-page {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     color: $bs-color-white;
     font-family: $bs-font-sans-serif;
+    height: 100vh;
 
-    header {
-        nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            h4 {
-                font-size: 24px;
-                color: $bs-color-white;
-                font-family: cursive;
-                padding-left: 40px;
-                margin-right: auto;
-                cursor: pointer;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin-right: auto;
-                gap: 4rem;
-
-                li {
-                    list-style: none;
-                    cursor: pointer;
-
-                    a {
-                        text-decoration: none;
-                        color: inherit;
-                    }
-
-                    &:hover {
-                        color: $bs-gray;
-                    }
-                }
-            }
-
-            button {
-                width: 10rem;
-                height: 2rem;
-                border-style: none;
-                border-radius: 3px;
-                background-color: $bs-orange;
-                color: $bs-color-white;
-                margin-right: 40px;
-                cursor: pointer;
-                transition: transform 0.2s ease;
-
-                &:hover {
-                    background-color: $bs-orange-hover;
-                }
-                
-                &:active {
-                    transform: scale(0.96);
-                }
-            }
-        }
+    a {
+        text-decoration: none;
+        color: inherit;
     }
+
     .body-intro-page {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include flexRow;
         
         .body-intro-page-text {
             width: 50%;
@@ -115,9 +22,11 @@ $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 
             h3 {
                 font-size: 54px;
             }
+
             p {
                 width: 90%;
             }
+          
             button {
                 margin-top: 4rem;
                 width: 10rem;
@@ -170,7 +79,168 @@ $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    
+
+
+/********** Intro page body section ********/
+.intro-page-body {
+    @include flexRow;
+
+    width: 100%;
+    height: 100vh;
+    font-family: $bs-font-sans-serif;
+    background-color: $bs-color-white;
+
+    .intro-page-body-img {
+        img {
+            width: 600px;
+            height: auto;
+        }
+    }
+
+    .intro-pgae-body-text {
+        @include flexCol;
+        
+        width: 50%;
+
+        h1 {
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 20px;
+            color: $bs-gray-dark;
+        }
+
+        button {
+            @include button;
+
+            font-weight: 700;
+            font-size: 15px;
+            color: $bs-purple;
+            width: fit-content;
+            height: 30px;
+            background-color: inherit;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+               
+                &:hover {
+                    color: $bs-indigo;
+                }
+            }
+        }
+    }
 }
-  
+
+/** Section people e-commerce*/
+.section-people-ecommerce {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    gap: 2.5rem;
+    font-family: $bs-font-sans-serif;
+    background-color: $bs-color-white;
+
+    .section-people-intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 20px;
+            color: $bs-gray-dark;
+            text-align: center;
+            width: 60%
+        }
+    }
+
+    .counter-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+/** Footer */
+footer {    
+    display: flex;
+    flex-direction: row;
+
+    height: 50vh;
+    color: $bs-color-white;
+    font-family: $bs-font-sans-serif;
+    background-color: $bs-dark;
+
+    padding: 13px;
+
+    .footer-details {
+        position: relative;
+
+        a {
+            font-size: 30px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        p {
+            font-size: 20px;
+            color: $bs-gray-dark;
+            width: 60%
+        }
+        
+        span {
+            position: absolute;
+            bottom: 3%;
+            left: 0%;
+        }
+    }
+
+    .footer-social-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+        padding-top: 2rem;
+
+        a {
+            font-size: 21px;
+
+            &:hover {
+                color: $bs-gray;
+            }
+        }
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+
+        ul {
+            list-style: none;
+            
+            li {
+                line-height: 28px;
+
+                a {
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: $bs-gray-dark;
+                    
+                    &:hover {
+                        color: $bs-color-white;
+                    }
+                }
+            }
+        }
+    }
+}

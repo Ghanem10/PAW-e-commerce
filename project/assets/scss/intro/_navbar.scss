@@ -1,0 +1,58 @@
+
+@import '../colors';
+
+header {
+    font-family: $bs-font-sans-serif;
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            font-size: 24px;
+            color: $bs-color-white;
+            font-family: cursive;
+            padding-left: 40px;
+            margin-right: auto;
+            cursor: pointer;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-right: auto;
+            gap: 4rem;
+
+            li {
+                list-style: none;
+                cursor: pointer;
+
+                &:hover {
+                    color: $bs-gray;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            @include button;
+
+            width: 10rem;
+            height: 2rem;
+            background-color: $bs-orange;
+            color: $bs-color-white;
+            margin-right: 40px;
+
+            &:hover {
+                background-color: $bs-orange-hover;
+            }
+        }
+    }
+}

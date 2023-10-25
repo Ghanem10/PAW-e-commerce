@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import SelectTap from '../component/selection/selectTap';
+import SelectTap from '../component/section/selectTap';
 import { Electronics, Brands, Condition, Price } from '../util/objectsSelection';
 import { getProductsData } from '../services/productsData';
 import { IProducts } from '../util/typesObj';
+import Navbar from '../component/nav/navbar';
+import ItemsWraper from '../component/products/items';
+import SelectionWraper from '../component/section/selection';
+import ItemWraper from '../component/section/item';
+import '../assets/scss/intro/_items.scss';
 
 export default function Products(): React.JSX.Element {
     document.title = "Products | E-commerce";
@@ -20,27 +25,22 @@ export default function Products(): React.JSX.Element {
 
     return (
         <section className='products-page-main'>
-            <div className='products-page-selection'>
+            <Navbar />
+            <SelectionWraper>
                 <SelectTap product={Electronics} />
                 <SelectTap product={Brands} />
                 <SelectTap product={Condition} />
                 <SelectTap product={Price} />
-            </div>
-            <div className='products-page-links'>Home {'>'} Products</div>
+            </SelectionWraper>
             <h1>Found {products.length} products</h1>
-            <div className='products-page-items'>
-                {products.map((item: IProducts, idx) => (
-                    <div className='products-page-items' key={idx}>
-                        <img src="" alt="" />
-                        <h3>{item.title}</h3>
-                        <div className='products-page-inner'>
-                            <span>{item.price}</span>
-                            <span>{item.rate}</span>
-                        </div>
-                        <h3>Time Stamp: {item.time?.toString()}</h3>
-                    </div>
+            <ItemsWraper>
+                {products.map((item: IProducts) => (
+                    <ItemWraper
+                        key={item.productid}
+                        product={item}
+                    />
                 ))}
-            </div>
+            </ItemsWraper>
         </section>
     );
 }

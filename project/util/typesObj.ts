@@ -10,7 +10,7 @@ export type SelectionProducts = {
 
 /** Product in PSQL */
 export type IProducts = {
-    id?: number;
+    productid?: number;
     title?: string;
     description?: string;
     price?: number;
