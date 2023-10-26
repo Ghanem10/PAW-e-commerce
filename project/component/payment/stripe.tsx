@@ -1,7 +1,7 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './form';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
 export default function StripeProvider(): JSX.Element {
@@ -39,8 +39,13 @@ export default function StripeProvider(): JSX.Element {
     }, []);
 
     return (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <CheckoutForm />
-        </Elements>
+        <React.Fragment>
+            <h1>Stipe API Getaway</h1>
+            {stripePromise && clientSecret && (
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <CheckoutForm />
+                </Elements>
+            )}
+        </React.Fragment>
     );
 };
