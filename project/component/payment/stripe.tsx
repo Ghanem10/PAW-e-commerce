@@ -1,17 +1,45 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './form';
-
-const stripePromise: Promise<Stripe | null> = loadStripe('pk_test_51O3lVwBYTF8QnfucZdwKPJzZVuYy8jH94nFS7ql1KV5riF7A8Nx8IxymEhvUvKvU4pkaKkcZ6EKecaAmjmUXcJce00IgZ6z6f0');
+import { useState, useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
 
 export default function StripeProvider(): JSX.Element {
-    const options: { clientSecret: string } = {
-        clientSecret: ``,
+    
+    const [stripePromise, setStripePromise] = useState<Stripe | PromiseLike<Stripe | null> | null>(null);
+    const [clientSecret, setClientSecret] = useState<string>("");
+
+    // Publish key
+    const getPublishKey = async () => {
+        try {
+            await axios.get('/publish').then( async (res) => {
+                const { publishKey } = await res.data;
+                setStripePromise(loadStripe(publishKey));
+            });
+        } catch (error) {
+            return 'XXX';
+        }
     };
 
-    
+    // Client Secret
+    const getClientSecret = async () => {
+        try {
+            await axios.get('/client').then( async (res) => {
+                const { resClientSecret } = await res.data;
+                setClientSecret(resClientSecret);
+            });
+        } catch (error) {
+            return 'XXX';
+        }
+    };
+
+    useEffect(() => {
+        getPublishKey();
+        getClientSecret();
+    }, []);
+
     return (
-        <Elements stripe={stripePromise} options={options}>
+        <Elements stripe={stripePromise} options={{ clientSecret }}>
             <CheckoutForm />
         </Elements>
     );

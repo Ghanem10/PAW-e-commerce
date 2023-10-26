@@ -3,11 +3,13 @@ import '../assets/scss/intro/_subscription.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../component/nav/navbar';
+import StripeProvider from '../component/payment/stripe';
 
 export default function Subscription(): React.JSX.Element {
     const [totleEvents, setTotalEvents] = useState<number>(10000);
     const [subFee, setSubFee] = useState<number>(5);
     const [selected, setSelected] = useState<string>("");
+    const [payment, setPayement] = useState<boolean>(false);
 
     const updateTotaleEventsMonthly = (): void => {
 
@@ -28,6 +30,10 @@ export default function Subscription(): React.JSX.Element {
         if (totleEvents <= 100000) {
             setTotalEvents(totleEvents * 10);
         }
+    };
+
+    const requestPayment = (): void => {
+        setPayement(true)
     };
 
     return (
@@ -92,7 +98,15 @@ export default function Subscription(): React.JSX.Element {
                             <li><FontAwesomeIcon icon={faCheck} id='icon-checked'/> Shared & Public Dashboards</li>
                         </ul>
                     </div>
-                    <button className='subscription-form-button-plan'>Start a plan <FontAwesomeIcon icon={faArrowRight} /></button>
+                    <button 
+                        onClick={requestPayment}
+                        className='subscription-form-button-plan'
+                    >
+                        Start a plan <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
+                    {payment && (
+                        <StripeProvider />
+                    )}
                 </div>
             </div>
         </section>
