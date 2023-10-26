@@ -15,7 +15,7 @@ export default function Navbar(): React.JSX.Element {
                 </h4>
                 <ul>
                     <li tabIndex={2}><Link to={'/Products'}>Product</Link></li>
-                    <li tabIndex={3}>Subscription</li>
+                    <li tabIndex={3}><Link to={'/Subscription'}>Subscription</Link></li>
                     <li className='intro-about-section' tabIndex={4}>About</li>
                     <p className='intro-p-about-section'>
                         Our e-commerce platform offers a vast range of products, making shopping for anything
