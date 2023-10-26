@@ -12,8 +12,8 @@ export default function StripeProvider(): JSX.Element {
     // Publish key
     const getPublishKey = async () => {
         try {
-            await axios.get('/publish').then( async (res) => {
-                const { publishKey } = await res.data;
+            await axios.get('http://localhost:4000/publish').then( async (res) => {
+                const publishKey = await res.data.key;
                 setStripePromise(loadStripe(publishKey));
             });
         } catch (error) {
@@ -24,9 +24,9 @@ export default function StripeProvider(): JSX.Element {
     // Client Secret
     const getClientSecret = async () => {
         try {
-            await axios.get('/client').then( async (res) => {
-                const { resClientSecret } = await res.data;
-                setClientSecret(resClientSecret);
+            await axios.post('http://localhost:4000/create-payment-intend').then( async (res) => {
+                const clientSecret = await res.data.secret;
+                setClientSecret(clientSecret);
             });
         } catch (error) {
             return 'XXX';
