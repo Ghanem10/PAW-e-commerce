@@ -40,7 +40,6 @@ export default function StripeProvider(): JSX.Element {
 
     return (
         <React.Fragment>
-            <h1>Stipe API Getaway</h1>
             {stripePromise && clientSecret && (
                 <Elements stripe={stripePromise} options={{ clientSecret }}>
                     <CheckoutForm />

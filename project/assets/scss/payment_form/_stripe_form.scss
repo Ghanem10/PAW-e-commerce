@@ -49,4 +49,24 @@
             }
         }
     }
+
+    @media (max-width: 990px) {
+        & {
+            height: 200vh;
+        }
+    }
+
+    @media (max-width: 550px) {
+        & {
+            height: 150vh;
+            
+            .form-checkout-stripe {
+                top: 31%;
+                left: 7%;
+            }
+            .form-checkout-stripe {
+                width: 75%;
+            }
+        }
+    }
 }

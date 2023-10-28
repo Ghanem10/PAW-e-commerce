@@ -67,6 +67,18 @@ routerDB.route("/deleteProduct/:id").delete(async (req: Request, res: Response):
     }
 });
 
+routerDB.route("/filter").get(async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { electronic, brands, price, rate } = req.params;
+        const filteredProduct = await pool.query(`
+            SELECT * FROM product WHERE title LIKE $1 AND  discription LIKE $2 AND price=$3 AND rate=$4 
+        `, ['%' + electronic + '%', '%' + brands + '%', price, rate]);
+        
+        res.status(200).json({ filteredProduct });
+    } catch (error) {
+        res.status(500).json({ mes: `ERROR FROM FILTER PRODUCT: ${error}`});
+    }
+});
 
 /** Bulk updates for prices */
 routerDB.route("/UpdatePrice").put(async (req: Request, res: Response): Promise<void> => {});

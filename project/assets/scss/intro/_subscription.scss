@@ -3,6 +3,7 @@
 section {
     position: relative;
     color: $bs-color-white;
+    background-color: #07529e;
 }
 .subscription-page-main {
     display: flex;
@@ -111,6 +112,47 @@ section {
 
             &:hover {
                 background-color: $bs-green-hover;
+            }
+        }
+    }
+
+    @media (max-width: 990px) {
+        & {
+            width: 90%;
+
+            .subscription-body-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                width: 70%;
+                gap: 3rem;
+
+                .subscription-form-buttons {
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .subscription-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .subscription-form-ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .subscription-form-button-plan {
+                    width: 100%;
+                }
             }
         }
     }

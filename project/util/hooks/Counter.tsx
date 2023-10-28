@@ -17,7 +17,7 @@ export default function Counter({ limit, title }: { limit: number, title: string
     }, [count]);
 
     return (
-        <div className='counter'>
+        <div className='counter left'>
             <span className='count'>{count}</span>
             <span className='title'>{title}</span>
         </div>

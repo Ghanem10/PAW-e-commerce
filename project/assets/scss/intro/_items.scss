@@ -1,5 +1,8 @@
 @import '../colors';
 
+html {
+    background-color: #07529e;
+}
 
 .products-page-main {
     display: flex;
@@ -20,9 +23,30 @@
         width: 100%;
         height: 80px;
         gap: 10px;
+
+        margin-bottom: 3rem;
+    }
+
+    .query-btn {
+        @include button;
+        margin: 0 auto;
+        width: 50%;
+        height: 40px;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        color: $bs-color-white;
+        background-color: $bs-red;
+
+        &:hover {
+            background-color: $bs-red-hover;
+        }
     }
 
     h1 {
+        margin-top: 3rem;
+
         font-size: 30px;
         text-align: center;
     }
@@ -39,7 +63,7 @@
             border: 1px solid rgba(255, 255, 255, 0.123);
             margin: 5px;
             height: auto;
-            width: calc(100% / 3 - 12px);
+            width: calc(100% / 3 - 16px);
             cursor: pointer;
             transition: transform 0.2s ease;
             
@@ -98,6 +122,53 @@
 
             &:hover {
                 transform: scale(1.02);
+            }
+        }
+    }
+
+    
+    @media (max-width: 990px) {
+        & {
+            .products-page-selection {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 30vh;
+                
+                select {
+                    width: 80%;
+                }
+            }
+            .products-page-items {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 20px;
+                .products-page-item {
+                    width: calc(100% / 2 - 12px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 990px) {
+        & {
+            .products-page-selection {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 30vh;
+                
+                select {
+                    width: 80%;
+                }
+            }
+            .products-page-items {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 20px;
+                .products-page-item {
+                    width: calc(100% / 1 - 12px);
+                }
             }
         }
     }

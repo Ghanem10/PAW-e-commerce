@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import IphoneImage from '../assets/img/teardown.svg';
 import teardown from '../assets/img/section-dark.png';
 import Navbar from '../component/nav/navbar';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { observer } from '../util/animate';
 
 /** StyleSheet */
 import '../assets/scss/intro/intro-section.scss';
 import '../assets/img/iphone-intro.png';
+
+/** ICons */
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import { faChrome } from '@fortawesome/free-brands-svg-icons/faChrome';
@@ -20,36 +23,45 @@ import Counter from '../util/hooks/Counter';
 export default function Introduction(): React.JSX.Element {
     document.title = "Main | E-commerce";
 
+    useEffect(() => {
+        const hiddenELements = document.querySelectorAll(".left");
+        const rightElements = document.querySelectorAll(".right");
+        const bottomElements = document.querySelectorAll(".bottom");
+        hiddenELements.forEach((el) => observer.observe(el));
+        rightElements.forEach((el) => observer.observe(el));
+        bottomElements.forEach((el) => observer.observe(el));
+    }, [observer]);
+
     return (
         <React.Fragment>
             <section className='intro-page'>
-                <Navbar />
+                <Navbar dir=''/>
                 <div className='body-intro-page'>
                     <div className='body-intro-page-text'>
-                        <h3 tabIndex={6}>E-commerce Web Template</h3>
-                        <p tabIndex={7}>
+                        <h3 className='left' tabIndex={6}>E-commerce Web Template</h3>
+                        <p className='left' tabIndex={7}>
                             All of CSS html templates are Ready to use for online shops and 
                             marketplace web sites with well organized file structure and well designed stylesheet. 
                             Check our desktop html themes and ecommerce mobile app templates.
                         </p>
-                        <button tabIndex={8}>
+                        <button className='left' tabIndex={8}>
                             <Link to={'/Subscription'}>
                                 Get Started
                             </Link>
                         </button>
                     </div>
-                    <div className='body-intro-page-image'>
+                    <div className='body-intro-page-image bottom'>
                         <img src={IphoneImage} alt="" />
                     </div>
                 </div>
             </section>
             <section className='intro-page-body'>
-                <div className='intro-page-body-img'>
+                <div className='intro-page-body-img left'>
                     <img src={teardown} alt="" />
                 </div>
                 <div className='intro-pgae-body-text'>
-                    <h1>Marketplace & built-in Extensions</h1>
-                    <p>
+                    <h1 className='bottom' >Marketplace & built-in Extensions</h1>
+                    <p className='bottom' >
                         Need additional features? Connect extensions or write your own! 
                         Now you do not need to use many sources from different systems 
                         - expand and supplement everything in one! Install extensions 
@@ -58,23 +70,23 @@ export default function Introduction(): React.JSX.Element {
                         with the whole community.
                     </p>
 
-                    <button>
+                    <button className='left' >
                         <Link to={'#'}>
                             Visit E-commerce Marketplace <FontAwesomeIcon icon={faArrowRight} />
                         </Link>
                     </button>
                 </div>
             </section>
-            <section className='section-people-ecommerce'>
+            <section className='section-people-ecommerce hidden'>
                 <div className='section-people-intro'>
-                    <h1>People 🥰 E-commerce</h1>
-                    <p>
+                    <h1 className='bottom' >People 🥰 E-commerce</h1>
+                    <p className='bottom' >
                         E-commerce is an ethical and powerful service. 
                         Hundreds of people have already made the switch 
                         from Google and other alternatives.
                     </p>
                 </div>
-                <div className='counter-section'>
+                <div className='counter-section left'>
                     <Counter limit={570} title='Registered users' />
                     <Counter limit={2038} title='Added websites'/>
                     <Counter limit={3502} title='Events tracked'/>
@@ -85,11 +97,11 @@ export default function Introduction(): React.JSX.Element {
                     <Link to={'/'}>
                         <FontAwesomeIcon icon={faCartShopping} /> E-commerce
                     </Link>
-                    <p>
+                    <p className='left' >
                         The best website need the best services.
                         E-commerce is a powerful E-commerce platform.
                     </p>
-                    <div className='footer-social-links'>
+                    <div className='footer-social-links left'>
                         <Link to={'#'}><FontAwesomeIcon icon={faGithub} /></Link>
                         <Link to={'#'}><FontAwesomeIcon icon={faDiscord} /></Link>
                         <Link to={'#'}><FontAwesomeIcon icon={faTwitter} /></Link>
@@ -99,7 +111,7 @@ export default function Introduction(): React.JSX.Element {
                     </div>
                     <span>@2023-10-25. All right reserved.</span>
                 </div>
-                <div className='footer-links'>
+                <div className='footer-links left'>
                     <ul>
                         <h1>FEATURES</h1>
                         <li><Link to={'#'}>Career</Link></li>

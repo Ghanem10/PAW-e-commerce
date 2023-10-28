@@ -3,6 +3,7 @@ $bs-indigo: #6610f2;
 $bs-purple: #6f42c1;
 $bs-pink: #d63384;
 $bs-red: #ff2748;
+$bs-red-hover: #dd0a2a;
 $bs-orange: #ff8100;
 $bs-orange-hover:  #ce6e0e;
 $bs-yellow: #ffc107;
@@ -75,4 +76,45 @@ $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 
 
 ::-webkit-scrollbar-thumb:hover {
     background: $bs-gray-dark; 
+}
+
+
+/** animate **/
+.left {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.right {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(1%);
+    transition: all 1s;
+}
+
+.bottom {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+    transition: all 1s;
+}
+
+.show-left {
+    filter: blur(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.show-right {
+    filter: blur(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.show-bottom {
+    filter: blur(0);
+    transform: translateY(0);
+    opacity: 1;
 }

@@ -5,7 +5,8 @@
     position: relative;
     color: $bs-color-white;
     font-family: $bs-font-sans-serif;
-    height: 100vh;
+    background-color: #07529e;
+    min-height: 100vh;
 
     a {
         text-decoration: none;
@@ -49,9 +50,85 @@
         }
 
         .body-intro-page-image {
+            padding-top: 3rem;
+            width: 40%;
             img {
-                width: 500px;
+                width: 100%;
                 height: auto;
+            }
+        }
+    }
+
+    @media (max-width: 990px) {
+        .body-intro-page {
+            display: flex;
+            flex-direction: column;
+
+            min-height: 80vh;
+
+            .body-intro-page-text {
+                width: 90%;
+
+                h3 {
+                    font-size: 23px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+                button {
+                    margin-top: 0.4rem;
+                }
+            }
+
+
+            .body-intro-page-image {
+                width: 90%;
+                margin-top: 3rem;
+                min-width: 70%;
+                max-width: 70%;
+                
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 390px) {
+        .body-intro-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            min-height: 50vh;
+
+            .body-intro-page-text {
+                width: 90%;
+
+                h3 {
+                    font-size: 23px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+
+
+            .body-intro-page-image {
+                width: 100%;
+                margin-top: 5rem;
+                min-width: 100%;
+                max-width: 100%;
+                
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
@@ -62,13 +139,17 @@
     @include flexRow;
 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+
     font-family: $bs-font-sans-serif;
     background-color: $bs-color-white;
 
     .intro-page-body-img {
+        width: 45%;
+        
         img {
-            width: 600px;
+            width: 100%;
             height: auto;
         }
     }
@@ -108,6 +189,29 @@
             }
         }
     }
+
+    @media (max-width: 990px) {
+        & {
+            display: flex;
+            flex-direction: column;
+            padding-top: 2rem;
+
+
+            .intro-page-body-img {
+                width: 70%;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .intro-pgae-body-text {
+                width: 100%;
+                min-width: 65%;
+                max-width: 65%;
+            }
+        }
+    }
 }
 
 /** Section people e-commerce*/
@@ -126,6 +230,7 @@
         align-items: center;
 
         h1 {
+            color: $bs-dark;
             font-size: 27px;
             font-weight: 700;
         }
@@ -143,6 +248,48 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        
+        .counter:nth-child(2) {
+            transition-delay: 200ms;
+        }
+        
+        .counter:nth-child(3) {
+            transition-delay: 500ms;
+        }
+    }
+
+    @media (max-width: 990px) {
+        & {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+
+            .section-people-intro {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+        
+                h1 {
+                    color: $bs-dark;
+                    font-size: 27px;
+                    font-weight: 700;
+                }
+        
+                p {
+                    font-size: 20px;
+                    color: $bs-gray-dark;
+                    width: 60%
+                }
+            }
+            
+            .counter-section {
+                display: flex;
+                flex-direction: column;
+                gap: 5rem;
+                padding-bottom: 2rem;
+            }
+        }
     }
 }
 
@@ -151,10 +298,10 @@ footer {
     display: flex;
     flex-direction: row;
 
-    height: 50vh;
+    min-height: 50vh;
     color: $bs-color-white;
     font-family: $bs-font-sans-serif;
-    background-color: $bs-dark;
+    background-color: darken($color: #000000, $amount: 3);
 
     padding: 13px;
 
@@ -215,6 +362,67 @@ footer {
                     &:hover {
                         color: $bs-color-white;
                     }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 990px) {
+        & {
+            .footer-details {
+        
+                p {
+                    font-size: 20px;
+                    color: $bs-gray-dark;
+                    width: 100%
+                }
+                
+                span {
+                    position: absolute;
+                    bottom: 3%;
+                    left: 0%;
+                }
+            }
+
+            .footer-social-links {
+                display: flex;
+                flex-wrap: wrap;
+
+                a {
+                    margin: 0 auto;
+                    width: calc(100% / 3 - 12px);
+                }
+            }
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                ul {
+                    li {
+                        a {
+                            font-size: 18px;
+                            text-decoration: none;
+                            color: $bs-gray-dark;
+                            
+                            &:hover {
+                                color: $bs-color-white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 350px) {
+        & {
+            display: flex;
+            flex-direction: column;
+
+            .footer-details {
+                span {
+                    display: none;
                 }
             }
         }

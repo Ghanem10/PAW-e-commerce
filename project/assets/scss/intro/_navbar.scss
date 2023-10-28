@@ -3,13 +3,13 @@
 
 header {
     font-family: $bs-font-sans-serif;
-
+    
     nav {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
+        
         h4 {
             font-size: 24px;
             color: $bs-color-white;
@@ -26,6 +26,7 @@ header {
             margin-right: auto;
             gap: 4rem;
 
+
             li {
                 list-style: none;
                 cursor: pointer;
@@ -39,6 +40,58 @@ header {
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        .side-bar {
+            position: fixed;
+
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(8, 11, 24, 0.979);
+            //rgba(6, 32, 117, 0.644);
+            top: 0;
+            right: 0;
+
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                li {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .toggle-nav {
+
+                    .faBars-icon-close {
+                        font-size: 23px;
+                    }
+                }
+            }
+
+            button {
+                width: 90%;
+                margin-top: 3rem;
+                margin-left: 1rem;
+            }
+        }
+
+        .menuBar-btn {
+            @include button;
+
+            width: 5rem;
+            height: 2rem;
+            color: $bs-color-white;
+            background-color: inherit;
+            border: 1px solid silver;
+
+            &:hover {
+                background-color: #0d4680;
+            }
+            .faBars-icon {
+                font-size: 20px
+            }
         }
 
         button {
@@ -55,8 +108,37 @@ header {
             }
         }
     }
+
+    @media (max-width: 990px) {
+        & {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                h4 {
+                    padding-left: 20px;
+                    font-size: 20px;
+                }
+            } 
+        }
+    }
 }
 
+                                                    
+.bg-side-bar {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.356);
+
+    font-family: $bs-font-sans-serif;
+
+    transition: all 1s;
+}
 
 .intro-about-section {
     &:hover + .intro-p-about-section {
@@ -64,7 +146,8 @@ header {
         display: block;
         width: 30%;
         height: auto;
-        padding: 30px;
+        padding: 50px;
+        z-index: 2;
         top: 9%;
         left: 46%;
         color: $bs-dark;
