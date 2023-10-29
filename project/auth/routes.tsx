@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 
 /** Routes components */
 import Introduction from "../pages/landing";
@@ -11,11 +10,12 @@ type UIRoutingComponents = {
     component: JSX.Element;
 }[];
 
-// Visitors
-const visitorsRoute: UIRoutingComponents = [];
-
-// Public 
-const publicRoutes: UIRoutingComponents = [];
+/**
+ * TODO after adding users:
+ * 
+    const visitorsRoute: UIRoutingComponents = [];
+    const publicRoutes: UIRoutingComponents = [];
+*/
 
 // AuthRoutes
 const authProtectedRoutes: UIRoutingComponents = [

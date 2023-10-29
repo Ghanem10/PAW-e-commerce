@@ -2,7 +2,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { Stripe, loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './form';
 import React, { useState, useEffect } from 'react';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export default function StripeProvider(): JSX.Element {
     
