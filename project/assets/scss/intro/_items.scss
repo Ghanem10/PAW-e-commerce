@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../colors';
 
 html {
@@ -5,6 +6,7 @@ html {
 }
 
 .products-page-main {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +16,21 @@ html {
     a {
         text-decoration: none;
         color: inherit;
+    }
+
+    .error-message {
+        position: absolute;
+        margin: 0 auto;
+
+        width: 40%;
+        font-size: 15px;
+        color: $bs-color-white;
+        background-color: $bs-warning;
+        border-radius: 7px;
+
+        padding: 20px;
+        top: 3%;
+        right: 26%;
     }
 
     .products-page-selection {
@@ -73,6 +90,26 @@ html {
                 height: 40vh;
             }
 
+            @for $i from 1 through 3 {
+                
+                .beta-condition-#{$i} {
+                    
+                    margin-left: 10px;
+                    padding: 5px;
+                    font-family: $bs-font-monospace;
+                    width: fit-content;
+                    border-radius: 8px;
+                    
+                    @if ($i == 1) {
+                        background-color: #12f825;
+                    } @else if ($i == 2) {
+                        background-color: #fa771f;
+                    } @else if ($i == 3) {
+                        background-color: #ff2424;
+                    }
+                }
+            }
+
             .products-text {
                 padding: 10px;
 
@@ -88,7 +125,11 @@ html {
                         padding: 13px;
                         background-color: $bs-purple;
                         color: $bs-color-white;
-
+                        
+                        .fill-icon {
+                            color: #ff2424;
+                        }
+                        
                         &:hover {
                             background-color: #48317c;
                         }

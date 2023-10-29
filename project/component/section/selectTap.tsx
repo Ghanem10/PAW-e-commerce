@@ -4,17 +4,22 @@ import '../../assets/scss/intro/_selection.scss';
 
 declare type IProductsSelection = {
     product: SelectionProducts;
+    getOption: (e: HTMLSelectElement) => void;
 };
 
-export default function SelectTap(selection: IProductsSelection): React.JSX.Element {
+export default function SelectTap({ product , getOption }: IProductsSelection): React.JSX.Element {
+
+    const handleClick = (e: React.MouseEvent<HTMLSelectElement>) => {
+        getOption(e.currentTarget);
+    };
 
     return (
         <React.Fragment>
-            <select name={selection.product.name}>
-                <option defaultValue={selection.product.name}>{selection.product.name}</option>
-                <option value={selection.product.value_one}>{selection.product.value_one}</option>
-                <option value={selection.product.value_two}>{selection.product.value_two}</option>
-                <option value={selection.product.value_three}>{selection.product.value_three}</option>
+            <select onClick={handleClick}>
+                <option>{product.name}</option>
+                <option value={product.value_one}>{product.value_one}</option>
+                <option value={product.value_two}>{product.value_two}</option>
+                <option value={product.value_three}>{product.value_three}</option>
             </select>
         </React.Fragment>
     )

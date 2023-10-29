@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { IProducts } from "../util/typesObj";
+import { IProducts, IPriceQuery, IRateQuery } from "../util/typesObj";
 
 export const getProductsData = async (): Promise<AxiosResponse<IProducts[]>> => {
     const response:  AxiosResponse<{ products: { rows: IProducts[] } }> = await axios
@@ -9,15 +9,30 @@ export const getProductsData = async (): Promise<AxiosResponse<IProducts[]>> => 
     return { ...response, data};
 };
 
-export const getFilteredProduct = async (price: string, rate: string): Promise<AxiosResponse<IProducts[]>> => {
+export const getFilteredProduct = async (price: IPriceQuery, rate: IRateQuery, condition: string ): Promise<AxiosResponse<IProducts[]>> => {
     const response: AxiosResponse<{ products: { rows: IProducts[] } }> = await axios
-                .get(`http://localhost:4000/api/v12/products`, { 
+                .get(`http://localhost:4000/api/v12/filter`, { 
                     params: {
-                        price,
-                        rate
+                        one: price.one,
+                        two: price.two,
+                        oneC: rate.cone,
+                        twoC: rate.ctwo,
+                        condition
                     },
                 });
 
     const data = response.data.products.rows;
+    return { ...response, data};        
+};
+
+export const getFavProduct = async (getProductIDs: string | null): Promise<AxiosResponse<IProducts[]>> => {
+    const response: AxiosResponse<{ productById: { rows: IProducts[] } }> = await axios
+                .get(`http://localhost:4000/api/v12/getProduct`, { 
+                    params: {
+                        getProductIDs
+                    },
+                });
+
+    const data = response.data.productById.rows;
     return { ...response, data};        
 };

@@ -1,19 +1,11 @@
 import { SelectionProducts } from './typesObj';
 
-const Electronics: SelectionProducts = {
-    label: 'Electronics',
-    name: 'Electronics',
-    value_one: 'Watch',
-    value_two: 'Iphone',
-    value_three: 'Laptop',
-};
-
-const Brands: SelectionProducts = {
-    label: 'Brands',
-    name: 'Brands',
-    value_one: 'Electronics',
-    value_two: 'Equipments',
-    value_three: 'Home goods',
+const Rate: SelectionProducts = {
+    label: 'Rate',
+    name: 'Rate',
+    value_one: '10% - 50%',
+    value_two: '50% - 75%',
+    value_three: '75% - 100%',
 };
 
 const Condition: SelectionProducts = {
@@ -27,14 +19,13 @@ const Condition: SelectionProducts = {
 const Price: SelectionProducts = {
     label: 'Pricing',
     name: 'Price',
-    value_one: '$200 - $600',
+    value_one: '$10 - $600',
     value_two: '$600 - $1000',
     value_three: '$1000 and more',
 };
 
 export {
-    Electronics,
-    Brands,
+    Rate,
     Condition,
     Price
 };

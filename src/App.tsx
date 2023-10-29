@@ -1,7 +1,3 @@
-import React from 'react';
-import Introduction from '../project/pages/landing';
-import Subscription from '../project/pages/subscription';
-import Products from '../project/pages/products';
 
 /** React Router */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';

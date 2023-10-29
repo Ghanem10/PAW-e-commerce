@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import Introduction from "../pages/landing";
 import Products from "../pages/products";
 import Subscription from "../pages/subscription";
+import Profile from "../pages/profile";
 
 type UIRoutingComponents = {
     path: string;
@@ -26,7 +27,7 @@ const authProtectedRoutes: UIRoutingComponents = [
     { path: "*", component: <Introduction /> },
     
     // { path: "/Analytics", component: <Introduction /> },
-    // { path: "/profile", component: <UserProfile /> },
+    { path: "/Profile", component: <Profile /> },
 ];
 
 export { authProtectedRoutes };

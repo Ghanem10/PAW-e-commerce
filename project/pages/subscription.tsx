@@ -10,6 +10,9 @@ import StripeProvider from '../component/payment/stripe';
 import Navbar from '../component/nav/navbar';
 
 export default function Subscription(): React.JSX.Element {
+
+    document.title = "Subscription | E-commerce";
+
     const [totleEvents, setTotalEvents] = useState<number>(10000);
     const [subFee, setSubFee] = useState<number>(5);
     const [selected, setSelected] = useState<string>("");
@@ -63,7 +66,7 @@ export default function Subscription(): React.JSX.Element {
 
         
             <section>
-                <Navbar />
+                <Navbar dir=''/>
                 <div className='subscription-page-main'>
                     <div className='subscription-header'>
                         <h1>Simple, traffic-based pricing</h1>

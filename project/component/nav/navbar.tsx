@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { faBars, faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faUserCog, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
@@ -69,7 +69,11 @@ export default function Navbar(props: Directions): React.JSX.Element {
                                                             <li tabIndex={3}><Link to={'/Subscription'}>Subscription</Link></li>
                                                             <li className='intro-about-section' tabIndex={4}>About</li>
                                                         </ul>
-                                                        <button className={props.dir} tabIndex={5}>Login / Register</button>
+                                                        <Link to={"/Profile"}>
+                                                            <button className={props.dir} tabIndex={5}>
+                                                                <FontAwesomeIcon icon={faUserCog} /> Guest
+                                                            </button>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -93,7 +97,11 @@ export default function Navbar(props: Directions): React.JSX.Element {
                                         you need a breeze. Explore a diverse selection of items from electronics to fashion, all in one place
                                     </p>
                                 </ul>
-                                <button className={props.dir} tabIndex={5}>Login / Register</button>
+                                <Link to={"/Profile"}>
+                                    <button className={props.dir} tabIndex={5}>
+                                        <FontAwesomeIcon icon={faUserCog} /> Guest
+                                    </button>
+                                </Link>
                             </React.Fragment>
                         )
                     }

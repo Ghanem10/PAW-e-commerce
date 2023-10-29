@@ -23,12 +23,12 @@ routerDB.route("/products").get(async (req: Request, res: Response): Promise<voi
 });
 
 /** Get product by ID */
-routerDB.route("/getProduct/:id").get(async (req: Request, res: Response): Promise<void> => {
+routerDB.route("/getProduct").get(async (req: Request, res: Response): Promise<void> => {
     try {
-        const { id } = req.params;
+        const { getProductIDs } = req.query;
         const productById: QueryResult<Product> = await pool.query(`
-            SELECT * FROM product WHERE ProductID = $1
-        `, [id]);
+            SELECT * FROM product WHERE productid = $1
+        `, [getProductIDs]);
 
         res.status(200).json({ productById });
     } catch (error) {
@@ -67,14 +67,14 @@ routerDB.route("/deleteProduct/:id").delete(async (req: Request, res: Response):
     }
 });
 
-routerDB.route("/filter").get(async (req: Request, res: Response): Promise<void> => {
+routerDB.route("/filter").get(async (req: Request, res: Response): Promise<void> => { 
     try {
-        const { electronic, brands, price, rate } = req.params;
-        const filteredProduct = await pool.query(`
-            SELECT * FROM product WHERE title LIKE $1 AND  discription LIKE $2 AND price=$3 AND rate=$4 
-        `, ['%' + electronic + '%', '%' + brands + '%', price, rate]);
-        
-        res.status(200).json({ filteredProduct });
+        const { one, two, oneC, twoC, condition } = req.query;
+        const products = await pool.query(`
+            SELECT * FROM product WHERE price >= $1 AND price <= $2 AND rate >= $3 AND rate <= $4 AND condition = $5 
+        `, [one, two, oneC, twoC, condition]);
+
+        res.status(200).json({ products });
     } catch (error) {
         res.status(500).json({ mes: `ERROR FROM FILTER PRODUCT: ${error}`});
     }

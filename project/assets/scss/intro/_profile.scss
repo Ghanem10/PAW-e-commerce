@@ -1,0 +1,144 @@
+@import '../colors';
+
+.section-profile {
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    padding: 10px;
+    margin: 1rem auto;
+    width: 60%;
+    height: auto;
+
+    color: $bs-color-white;
+    border: 1px solid silver;
+
+    font-family: $bs-font-sans-serif;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .section-header-navigate {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        
+        h1 {
+            width: fit-content;
+        }
+
+        .section-profile-go {
+            @include button;
+
+            font-family: $bs-font-sans-serif;
+            background-color: $bs-green;
+            color: $bs-color-white;
+
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px;
+
+
+            &:hover {
+                background-color: #067715;
+            }
+        }
+    }
+
+    .section-contact-form {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.479);
+        gap: 3rem;
+
+        img {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+        }
+        .section-contact-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            span {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+        }
+    }
+    
+    .section-fav-info {
+        height: 80vh;
+        overflow-y: scroll;
+
+        .profile-page-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            
+            margin: 1rem 0;
+            border-bottom: 1px solid silver;
+            
+            img {
+                width: 300px;
+                height: auto;
+            }
+
+            .profile-text {
+                padding: 10px;
+
+                .profile-text-title {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    button {
+                        @include button;
+
+                        padding: 13px;
+                        background-color: $bs-purple;
+                        color: $bs-color-white;
+                        
+                        .fill-icon {
+                            color: #ff2424;
+                        }
+                        
+                        &:hover {
+                            background-color: #48317c;
+                        }
+                    }
+                }
+
+                /* Span for description */
+                span {
+                    font-size: 20px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+
+                .profile-price {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+    
+                    span {
+                        color: $bs-green;
+                        font-weight: 700;
+                        font-size: 30px;
+                    }
+                    span:nth-last-child(-n + 1) {
+                        color: $bs-dark;
+                    }
+                }
+            }
+        }
+    }
+}

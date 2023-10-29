@@ -44,11 +44,11 @@ export default function Introduction(): React.JSX.Element {
                             marketplace web sites with well organized file structure and well designed stylesheet. 
                             Check our desktop html themes and ecommerce mobile app templates.
                         </p>
-                        <button className='left' tabIndex={8}>
-                            <Link to={'/Subscription'}>
+                        <Link to={'/Subscription'}>
+                            <button className='left' tabIndex={8}>
                                 Get Started
-                            </Link>
-                        </button>
+                            </button>
+                        </Link>
                     </div>
                     <div className='body-intro-page-image bottom'>
                         <img src={IphoneImage} alt="" />
