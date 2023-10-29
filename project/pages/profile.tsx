@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import avatar from '../assets/img/avatar.png'
 import { IProducts } from '../util/typesObj';
 import { getFavProduct } from '../services/productsData';
