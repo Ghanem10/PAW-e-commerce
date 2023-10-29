@@ -1,6 +1,5 @@
 import React from 'react';
 import { SelectionProducts } from '../../util/typesObj';
-import '../../assets/scss/intro/_selection.scss';
 
 declare type IProductsSelection = {
     product: SelectionProducts;

@@ -3,7 +3,7 @@
 
 header {
     font-family: $bs-font-sans-serif;
-    
+
     nav {
         display: flex;
         flex-direction: row;
@@ -62,6 +62,11 @@ header {
                     font-size: 20px;
                     font-weight: 600;
                 }
+
+                p {
+                    z-index: 10;
+                }
+                
                 .toggle-nav {
 
                     .faBars-icon-close {
@@ -140,27 +145,4 @@ header {
     font-family: $bs-font-sans-serif;
 
     transition: all 1s;
-}
-
-.intro-about-section {
-    &:hover + .intro-p-about-section {
-        position: absolute;
-        display: block;
-        width: 30%;
-        height: auto;
-        padding: 50px;
-        z-index: 2;
-        top: 9%;
-        left: 46%;
-        color: $bs-dark;
-        text-align: center;
-        border-radius: 8px;
-        font-family: $bs-font-sans-serif;
-        background-color: #f8f9fa;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    }
-}
-
-.intro-p-about-section {
-    display: none;
 }

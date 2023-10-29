@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectTap from '../component/section/selectTap';
 import { Rate, Condition, Price } from '../util/objectsSelection';
 import { getFilteredProduct, getProductsData } from '../services/productsData';
@@ -78,7 +78,7 @@ export default function Products(): React.JSX.Element {
             const { data }: { data: IProducts[] } = await getProductsData();
             setProducts(data);
         }
-
+        
         getData();
     }, []);
 

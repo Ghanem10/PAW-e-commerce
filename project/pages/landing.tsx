@@ -35,7 +35,7 @@ export default function Introduction(): React.JSX.Element {
     return (
         <React.Fragment>
             <section className='intro-page'>
-                <Navbar dir=''/>
+                <Navbar dir='left'/>
                 <div className='body-intro-page'>
                     <div className='body-intro-page-text'>
                         <h3 className='left' tabIndex={6}>E-commerce Web Template</h3>

@@ -57,7 +57,7 @@ export default function Navbar(props: Directions): React.JSX.Element {
                                         (navOpen) ? (
                                                 <div className='bg-side-bar'>
                                                     <div className='side-bar'>
-                                                        <ul className={props.dir}>
+                                                        <ul>
                                                             <li className='toggle-nav'>
                                                                 <FontAwesomeIcon 
                                                                     className='faBars-icon-close' 
@@ -70,7 +70,7 @@ export default function Navbar(props: Directions): React.JSX.Element {
                                                             <li className='intro-about-section' tabIndex={4}>About</li>
                                                         </ul>
                                                         <Link to={"/Profile"}>
-                                                            <button className={props.dir} tabIndex={5}>
+                                                            <button tabIndex={5}>
                                                                 <FontAwesomeIcon icon={faUserCog} /> Guest
                                                             </button>
                                                         </Link>
@@ -92,10 +92,6 @@ export default function Navbar(props: Directions): React.JSX.Element {
                                     <li tabIndex={2}><Link to={'/Products'}>Product</Link></li>
                                     <li tabIndex={3}><Link to={'/Subscription'}>Subscription</Link></li>
                                     <li className='intro-about-section' tabIndex={4}>About</li>
-                                    <p className='intro-p-about-section'>
-                                        Our e-commerce platform offers a vast range of products, making shopping for anything
-                                        you need a breeze. Explore a diverse selection of items from electronics to fashion, all in one place
-                                    </p>
                                 </ul>
                                 <Link to={"/Profile"}>
                                     <button className={props.dir} tabIndex={5}>
