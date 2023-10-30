@@ -12,7 +12,7 @@ export default function StripeProvider(): JSX.Element {
     // Publish key
     const getPublishKey = async () => {
         try {
-            await axios.get('http://localhost:4000/publish').then( async (res) => {
+            await axios.get(`${import.meta.env.VITE_URL_BASE}/publish`).then( async (res) => {
                 const publishKey = await res.data.key;
                 setStripePromise(loadStripe(publishKey));
             });
@@ -24,7 +24,7 @@ export default function StripeProvider(): JSX.Element {
     // Client Secret
     const getClientSecret = async () => {
         try {
-            await axios.post('http://localhost:4000/create-payment-intend').then( async (res) => {
+            await axios.post(`${import.meta.env.VITE_URL_BASE}/create-payment-intend`).then( async (res) => {
                 const clientSecret = await res.data.secret;
                 setClientSecret(clientSecret);
             });

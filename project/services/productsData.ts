@@ -3,7 +3,7 @@ import { IProducts, IPriceQuery, IRateQuery } from "../util/typesObj";
 
 export const getProductsData = async (): Promise<AxiosResponse<IProducts[]>> => {
     const response:  AxiosResponse<{ products: { rows: IProducts[] } }> = await axios
-                .get(`http://localhost:4000/api/v12/products`);
+                .get(`${import.meta.env.VITE_URL_BASE}/api/v12/products`);
 
     const data = response.data.products.rows;
     return { ...response, data};
@@ -11,7 +11,7 @@ export const getProductsData = async (): Promise<AxiosResponse<IProducts[]>> => 
 
 export const getFilteredProduct = async (price: IPriceQuery, rate: IRateQuery, condition: string ): Promise<AxiosResponse<IProducts[]>> => {
     const response: AxiosResponse<{ products: { rows: IProducts[] } }> = await axios
-                .get(`http://localhost:4000/api/v12/filter`, { 
+                .get(`${import.meta.env.VITE_URL_BASE}/api/v12/filter`, { 
                     params: {
                         one: price.one,
                         two: price.two,
@@ -27,7 +27,7 @@ export const getFilteredProduct = async (price: IPriceQuery, rate: IRateQuery, c
 
 export const getFavProduct = async (getProductIDs: string | null): Promise<AxiosResponse<IProducts[]>> => {
     const response: AxiosResponse<{ productById: { rows: IProducts[] } }> = await axios
-                .get(`http://localhost:4000/api/v12/getProduct`, { 
+                .get(`${import.meta.env.VITE_URL_BASE}/api/v12/getProduct`, { 
                     params: {
                         getProductIDs
                     },

@@ -4,10 +4,6 @@ const observer: IntersectionObserver = new IntersectionObserver((entery) => {
             element.target.classList.add("show-left");
             element.target.classList.add("show-right");
             element.target.classList.add("show-bottom");
-        } else {
-            element.target.classList.remove("show-left");
-            element.target.classList.remove("show-right");
-            element.target.classList.remove("show-bottom");
         }
     });
 });
