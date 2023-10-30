@@ -45,7 +45,7 @@ export default function Navbar(props: Directions): React.JSX.Element {
     useEffect(() => {
         const hiddenELements = document.querySelectorAll(".left");
         hiddenELements.forEach((el) => observer.observe(el));
-    }, [width, observer]);
+    }, [observer]);
 
     const NavBar = (): JSX.Element  => {
         return (
