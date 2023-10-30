@@ -141,4 +141,25 @@
             }
         }
     }
+
+    @media (max-width: 990px) {
+        & {
+            width: 90%;
+            .section-header-navigate {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .section-fav-info {
+
+                .profile-page-item {
+
+                    img {
+                        width: 200px;
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
 }

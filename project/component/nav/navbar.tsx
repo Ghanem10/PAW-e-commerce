@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
 import '../../assets/scss/intro/_navbar.scss';
+import { observer } from '../../util/animate';
 
 type Directions = {
     dir: "left" | "right" | "bottom" | "";
@@ -40,6 +41,11 @@ export default function Navbar(props: Directions): React.JSX.Element {
     const showMenu = () => {
         setNavOpen(pre => !pre);
     };
+
+    useEffect(() => {
+        const hiddenELements = document.querySelectorAll(".left");
+        hiddenELements.forEach((el) => observer.observe(el));
+    }, [width, observer]);
 
     const NavBar = (): JSX.Element  => {
         return (

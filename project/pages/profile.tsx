@@ -49,9 +49,7 @@ export default function Profile(): JSX.Element {
                 <h1>Personal Info</h1>
                 <Link to={'/Products'}>
                     <button className='section-profile-go'>
-                        <span>
-                            Go back home
-                        </span>
+                        Go back home
                     </button>
                 </Link>
             </div>
