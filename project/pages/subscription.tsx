@@ -43,24 +43,12 @@ export default function Subscription(): React.JSX.Element {
         setPayement(true)
     };
 
-
-    useEffect(() => {
-        const S = document.querySelector('.payment-element-bg');
-        S?.addEventListener("click", () => {
-            setPayement(false);
-        });
-
-        return () => {
-            document.removeEventListener("click", () => {});
-        }
-    }, [payment]);
-
     return (
         <>
 
             {payment && (
                 <div className='payment-element-bg'>
-                    <StripeProvider />
+                    <StripeProvider setPayment={setPayement} />
                 </div>
             )}
 

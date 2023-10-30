@@ -4,7 +4,12 @@ import CheckoutForm from './form';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function StripeProvider(): JSX.Element {
+
+type ChildProps = { 
+    setPayment: (s: boolean) => void;
+}
+
+export default function StripeProvider({ setPayment }: ChildProps): JSX.Element {
     
     const [stripePromise, setStripePromise] = useState<Stripe | PromiseLike<Stripe | null> | null>(null);
     const [clientSecret, setClientSecret] = useState<string>("");
@@ -42,7 +47,7 @@ export default function StripeProvider(): JSX.Element {
         <React.Fragment>
             {stripePromise && clientSecret && (
                 <Elements stripe={stripePromise} options={{ clientSecret }}>
-                    <CheckoutForm />
+                    <CheckoutForm setPayment={setPayment} />
                 </Elements>
             )}
         </React.Fragment>

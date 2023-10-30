@@ -4,7 +4,11 @@ import { Stripe, StripeError } from '@stripe/stripe-js';
 import { StripeElements } from '@stripe/stripe-js';
 import { ChangeEvent, useState } from 'react';
 
-export default function CheckoutForm(): React.JSX.Element {
+type ChildProps = { 
+    setPayment: (s: boolean) => void;
+}
+
+export default function CheckoutForm({ setPayment }: ChildProps): React.JSX.Element {
     
     const elements: StripeElements | null = useElements();
     const stripe: Stripe | null = useStripe();
@@ -47,6 +51,13 @@ export default function CheckoutForm(): React.JSX.Element {
                 <span className='form-checkout-span'>
                     {processing ? "Processing..." : "Pay now"}
                 </span>
+            </button>
+            <button 
+                className='form-checkout-submit'
+                style={{ backgroundColor: "red" }}
+                onClick={() => setPayment(false)}
+            >
+                Cancel
             </button>
             {message && <div className='form-checkout-message'>{message}</div>}
         </form>
