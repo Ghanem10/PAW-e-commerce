@@ -25,6 +25,9 @@ app.get('/publish', (req: Request, res: Response) => {
     });
 });
 
+// to kick server
+app.get('/test', (req, res) => { console.log('testing....'); res.send({ X: '/'}) });
+
 app.post('/create-payment-intend', async (req: Request, res: Response) => {
     try {
         const paymentIntend = await stripe.paymentIntents.create({

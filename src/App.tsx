@@ -3,6 +3,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { authProtectedRoutes } from '../project/auth/routes';
 import './App.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 type IAuthRoutes = {
     path: string;
@@ -15,6 +17,20 @@ type IAuthRoutes = {
 };
 
 export default function App() {
+
+    const [count, setCount] = useState<number>(0);
+
+    setTimeout(() => { setCount(pre => pre + 1); }, 300000);
+
+    // Temp ---
+    useEffect(() => {
+        const testQ = async () => {
+            await axios.get(`${import.meta.env.VITE_URL_BASE}/test`);
+        };
+
+        testQ();
+    }, [count]);
+
     return (
         <BrowserRouter>
             <Routes>
