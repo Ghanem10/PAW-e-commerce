@@ -3,11 +3,14 @@ import { config } from 'dotenv';
 config();
 
 const pool = new Pool({
-    user: `${process.env.USER}`,
-    password: `${process.env.PASSWORD}`,
-    host: "localhost",
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
     port: 5432,
-    database: "ecommerce"
+    database: process.env.POSTGRES_DATABASE,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 export { pool };

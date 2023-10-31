@@ -18,10 +18,6 @@ type IAuthRoutes = {
 
 export default function App() {
 
-    const [count, setCount] = useState<number>(0);
-
-    setTimeout(() => { setCount(pre => pre + 1); }, 600000);
-
     // Temp ---
     useEffect(() => {
         const testQ = async () => {
@@ -29,7 +25,7 @@ export default function App() {
         };
 
         testQ();
-    }, [count]);
+    }, []);
 
     return (
         <BrowserRouter>

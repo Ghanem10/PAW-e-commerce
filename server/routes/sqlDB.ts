@@ -18,6 +18,7 @@ routerDB.route("/products").get(async (req: Request, res: Response): Promise<voi
         const products: QueryResult<Product> = await pool.query(`SELECT * FROM product`);
         res.status(200).json({ products });
     } catch (error) {
+        console.log(error)
         res.status(500).json({ mes: "ERROR FROM PRODUCTS" });
     }
 });
