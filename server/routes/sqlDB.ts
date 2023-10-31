@@ -19,7 +19,7 @@ routerDB.route("/products").get(async (req: Request, res: Response): Promise<voi
         res.status(200).json({ products });
     } catch (error) {
         console.log(error)
-        res.status(500).json({ mes: "ERROR FROM PRODUCTS" });
+        res.status(500).json({ mes: `ERROR FROM PRODUCTS: ${error}` });
     }
 });
 
@@ -33,7 +33,7 @@ routerDB.route("/getProduct").get(async (req: Request, res: Response): Promise<v
 
         res.status(200).json({ productById });
     } catch (error) {
-        res.status(500).json({ mes: "ERROR FROM PRODUCTBYID" });
+        res.status(500).json({ mes: `ERROR FROM PRODUCTBYID: ${error}` });
     }
 });
 
