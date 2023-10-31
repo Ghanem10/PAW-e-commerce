@@ -1,0 +1,74 @@
+{
+    "rows": [
+        {
+            "Product": "Smartphone",
+            "Description": "A high-end smartphone",
+            "Quantity": 20,
+            "Price": 599,
+            "Condition": "New Brand"
+        },
+        {
+            "Product": "Laptop",
+            "Description": "Powerful laptop for work",
+            "Quantity": 30,
+            "Price": 899,
+            "Condition": "Heavily used"
+        },
+        {
+            "Product": "Tablet",
+            "Description": "Sleek and lightweight tablet",
+            "Quantity": 18,
+            "Price": 449,
+            "Condition": "Well used"
+        },
+        {
+            "Product": "Headphones",
+            "Description": "High-quality headphones",
+            "Quantity": 89,
+            "Price": 99,
+            "Condition": "Heavily used"
+        },
+        {
+            "Product": "Smartwatch",
+            "Description": "Fitness and health tracking",
+            "Quantity": 36,
+            "Price": 149,
+            "Condition": "Well used"
+        },
+        {
+            "Product": "Bluetooth Speaker",
+            "Description": "Portable speaker with great sound",
+            "Quantity": 4,
+            "Price": 79,
+            "Condition": "New Brand"
+        },
+        {
+            "Product": "Wireless Mouse",
+            "Description": "Ergonomic wireless mouse",
+            "Quantity": 76,
+            "Price": 29,
+            "Condition": "Well used"
+        },
+        {
+            "Product": "In-Ear Earbuds",
+            "Description": "Premium in-ear earbuds",
+            "Quantity": 93,
+            "Price": 129,
+            "Condition": "Well used"
+        },
+        {
+            "Product": "Gaming Console",
+            "Description": "Next-gen gaming console",
+            "Quantity": 55,
+            "Price": 399,
+            "Condition": "New Brand"
+        },
+        {
+            "Product": "Over-Ear Headphones",
+            "Description": "Comfortable over-ear headphones",
+            "Quantity": 49,
+            "Price": 199,
+            "Condition": "Heavily used"
+        }
+    ]
+}

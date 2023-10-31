@@ -1,6 +1,7 @@
 import express, { Router, Request, Response } from 'express';
 import { pool } from '../db/pool';
 import { QueryResult } from 'pg';
+import products from '../db/temp.json';
 
 const routerDB: Router = express.Router();
 
