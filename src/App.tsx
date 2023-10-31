@@ -3,7 +3,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { authProtectedRoutes } from '../project/auth/routes';
 import './App.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 type IAuthRoutes = {
