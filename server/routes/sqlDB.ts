@@ -1,7 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 import { pool } from '../db/pool';
 import { QueryResult } from 'pg';
-import products from '../db/temp.json';
 
 const routerDB: Router = express.Router();
 
@@ -16,7 +15,7 @@ type Product = {
 /** Get all the products */
 routerDB.route("/products").get(async (req: Request, res: Response): Promise<void> => {
     try {
-        // const products: QueryResult<Product> = await pool.query(`SELECT * FROM product`);
+        const products: QueryResult<Product> = await pool.query(`SELECT * FROM product`);
         res.status(200).json({ products });
     } catch (error) {
         res.status(500).json({ mes: "ERROR FROM PRODUCTS" });
